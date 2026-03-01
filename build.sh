@@ -1,2 +1,3 @@
 #!/bin/bash
-docker build -t react-dev .
+IMAGE=$1
+docker build -t $IMAGE .

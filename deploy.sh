@@ -1,4 +1,7 @@
 #!/bin/bash
-docker stop react-container || true
-docker rm react-container || true
-docker run -d -p 80:80 --name react-container react-dev
+IMAGE=$1
+export IMAGE=$IMAGE
+docker compose down || true
+docker compose pull || true
+docker compose up -d
+docker ps
