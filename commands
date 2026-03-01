@@ -1,0 +1,109 @@
+   1  docker --version
+    2  sudo mkdir -p /usr/local/lib/docker/cli-plugins
+    3  sudo curl -SL https://github.com/docker/compose/releases/latest/download/docker-compose-linux-x86_64 -o /usr/local/lib/docker/cli-plugins/docker-compose
+    4  sudo chmod +x /usr/local/lib/docker/cli-plugins/docker-compose
+    5  docker compose version
+    6  cd ~
+    7  git clone https://github.com/sriram-R-krishnan/devops-build.git
+    8  cd devops-build
+    9  git checkout -b dev
+   10  vim Dockerfile
+   11  vim docker-compose.yml
+   12  vim build.sh
+   13  vim deploy.sh
+   14  chmod +x build.sh deploy.sh
+   15  docker build -t trend:test .
+   16  vim Dockerfile
+   17  docker build -t trend:test .
+   18  vim dockerfile
+   19  vim Dockerfile
+   20  cd ~/devops-build
+   21  npm install
+   22  docker build -t trend:test .
+   23  sudo dnf install -y nodejs npm
+   24  node -v
+   25  npm -v
+   26  cd ~/devops-build
+   27  npm install
+   28  ls -la
+   29  vim Dockerfile
+   30  docker build -t trend:test .
+   31  docker rm -f trend-test 2>/dev/null || true
+   32  docker run -d --name trend-test -p 80:80 trend:test
+   33  docker ps
+   34  docker rm -f $(docker ps -aq)
+   35  docker ps
+   36  sudo ss -lntp | grep ':80' || true
+   37  cd ~/devops-build
+   38  vim Dockerfile
+   39  docker build -t trend:test .
+   40  docker run -d --name trendstore -p 80:80 --restart=always trend:test
+   41  docker ps
+   42  git remote remove origin
+   43  git remote add origin https://github.com/vigneshkumar-ops/devops-build.git
+   44  git add .
+   45  git commit -m "Dockerized project"
+   46  git push -u origin dev
+   47  cd ~/devops-build
+   48  git branch
+   49  git remote -v
+   50  git pull origin dev --rebase
+   51  git status
+   52  git checkout --theirs Dockerfile
+   53  git checkout --theirs build.sh
+   54  git checkout --theirs deploy.sh
+   55  git checkout --theirs docker-compose.yml
+   56  git add Dockerfile build.sh deploy.sh docker-compose.yml
+   57  git rebase --continue
+   58  git push -u origin dev
+   59  sudo dnf install -y java-17-amazon-corretto
+   60  java -version
+   61  sudo wget -O /etc/yum.repos.d/jenkins.repo https://pkg.jenkins.io/redhat-stable/jenkins.repo
+   62  sudo rpm --import https://pkg.jenkins.io/redhat-stable/jenkins.io-2023.key
+   63  sudo dnf install -y jenkins
+   64  sudo systemctl enable --now jenkins
+   65  sudo usermod -aG docker jenkins
+   66  sudo systemctl restart jenkins
+   67  sudo cat /var/lib/jenkins/secrets/initialAdminPassword
+   68  vim Jenkinsfile
+   69  git add Jenkinsfile
+   70  git commit -m "Add pipeline"
+   71  git push
+   72  sudo systemctl status jenkins --no-pager
+   73  free -h
+   74  df -h
+   75  sudo dd if=/dev/zero of=/swapfile bs=1M count=2048
+   76  sudo chmod 600 /swapfile
+   77  sudo mkswap /swapfile
+   78  sudo swapon /swapfile
+   79  free -h
+   80  echo '/swapfile swap swap defaults 0 0' | sudo tee -a /etc/fstab
+   81  sudo systemctl restart jenkins
+   82  git branch -a
+   83  git checkout main
+   84  git pull origin main
+   85  git branch
+   86  git push -u origin main
+   87  git checkout master
+   88  git merge dev
+   89  git push origin master
+   90  git checkout -b master
+   91  git push -u origin master
+   92  cd ~/devops-build
+   93  git branch -a
+   94  git checkout master
+   95  git push -u origin master
+   96  sudo systemctl restart jenkins
+   97  sudo dd if=/dev/zero of=/swapfile bs=1M count=2048
+   98  sudo chmod 600 /swapfile
+   99  sudo mkswap /swapfile
+  100  sudo swapon /swapfile
+  101  free -h
+  102  echo '/swapfile swap swap defaults 0 0' | sudo tee -a /etc/fstab
+  103  sudo systemctl restart jenkins
+  104  docker volume create uptime
+  105  docker run -d   --restart=always   -p 3001:3001   -v uptime:/app/data   --name uptime-kuma   louislam/uptime-kuma:1
+  106  cd ~/devops-build
+  107  git status
+  108  vim project
+  109  vim README.md
